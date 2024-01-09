@@ -2,24 +2,49 @@
 <html>
   <head>
     <title>CoffeeInfo</title>
-    <link rel="stylesheet" href="style.css" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/coffee.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <header>
-      <a href="/index.html"><img src="../personal-page/assets/logo-yellow.png" /></a>
-      <a href="/index.html" class="navigation">Coffee List</a>
-    </header>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a href="/index.html" class="navbar-brand"><img src="../personal-page/assets/logo-yellow.png" /></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a href="/index.html" class="nav-link">Coffee List</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     
-    <section>
-      <h1></h1>
-      <div class="coffee-info">
-        <div class="info-general"></div>
-        <div class="info-detail"></div>
+    <section class="container">
+      <h1 class="coffee-name"></h1>
+      <div class="coffee-info row justify-content-md-center">
+        <div class="info-general col"></div>
+        <div class="info-detail col"></div>
       </div>
     </section>
 
     <footer>
-      <img src="../personal-page/assets/logo-white.png" />
+      <div class="row mb-4">
+        <div class="col footer-column">
+          <img src="../personal-page/assets/logo-white.png" />
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col">
+          <span class="copyright quick-links">Copyright &copy; CoffeeInfo <script>document.write(new Date().getFullYear())</script>
+          </span>
+        </div>
+      </div>
     </footer>
 
     <script src="js/data.js"></script>

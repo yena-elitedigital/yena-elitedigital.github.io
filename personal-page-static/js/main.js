@@ -10,12 +10,12 @@ const BASEURL = "/";
       let elem = document.createElement("tr");
       elem.className = "coffee-row";
       elem.innerHTML = `
-        <td class="td-xl">${coffee.name}</td>
+        <td scope="row" class="th-lg">${coffee.name}</td>
         <td>${temp}</td>
-        <td class="td-md">${data.size}</td>
-        <td class="td-lg">${coffee.allergens.join(", ")}</td>
-        <td>${data.shots}</td>
-        <td class="td-sm"><button id="${coffee.name}-detail-btn" class="detail-btn">View</button></td>
+        <td class="th-lg">${data.size}</td>
+        <td class="th-lg column-4">${coffee.allergens.join(", ")}</td>
+        <td class="column-5">${data.shots}</td>
+        <td><button id="${coffee.name}-detail-btn" class="detail-btn">View</button></td>
       `;
       document.getElementById("coffee-list").append(elem);
     }
@@ -87,7 +87,7 @@ const BASEURL = "/";
       coffee = filterCoffeeData[0];
     }
 
-    document.querySelector("h1").innerHTML = coffee.name;
+    document.querySelector(".coffee-name").innerHTML = coffee.name;
 
     if (coffee.ice) updateCoffeeGeneralInfo("Ice", coffee.ice);
     if (coffee.hot) updateCoffeeGeneralInfo("Hot", coffee.hot);

@@ -2,60 +2,60 @@
 <html>
   <head>
     <title>CoffeeInfo</title>
-    <link rel="stylesheet" href="style.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/coffee-list.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <header>
-      <a href="/index.html"><img src="../personal-page/assets/logo-yellow.png" /></a>
-      <a href="/index.html" class="navigation">Coffee List</a>
-    </header>
-
-    <!-- <div class="search-bar">
-      <input />
-      <button id="search-btn">Search</button>
-    </div> -->
-    <!-- <div>
-      <select name="ice-hot" id="ice-hot">
-        <option value="ice">Ice</option>
-        <option value="hot">Hot</option>
-      </select>
-      <select name="size" id="category">
-        <option value="small">small</option>
-        <option value="medium">medium</option>
-        <option value="large">large</option>
-        <option value="single">single</option>
-        <option value="double">double</option>
-      </select>
-      <select name="allergens" id="allergens">
-        <option value="milk">Milk</option>
-      </select>
-      <select name="shots" id="shots">
-        <option value="shot-1">1</option>
-        <option value="shot-2">2</option>
-        <option value="shot-3">3</option>
-        <option value="shot-4">4</option>
-      </select>
-    </div> -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a href="/index.html" class="navbar-brand"><img src="../personal-page/assets/logo-yellow.png" /></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a href="/index.html" class="nav-link">Coffee List</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <section class="home">
       <img src="../personal-page/assets/logo-yellow-icon.png" class="logo" />
-      <table class="coffee-list">
-        <thead>
-          <tr>
-            <th class="td-xl">Coffee Name</th>
-            <th>Ice/Hot</th>
-            <th class="td-md">Size</th>
-            <th class="td-lg">Allergens</th>
-            <th>Shots</th>
-            <th class="td-sm"></th>
-          </tr>
-        </thead>
-        <tbody id="coffee-list"></tbody>
-      </table>
+      <div class="table-responsive-sm">
+        <table class="table table-hover table-fixed table-borderless card">
+          <thead>
+            <tr>
+              <th class="th-lg">Coffee</th>
+              <th>Ice/Hot</th>
+              <th class="th-lg">Size</th>
+              <th class="th-lg column-4">Allergens</th>
+              <th class="column-5">Shots</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody id="coffee-list"></tbody>
+        </table>
+      </div>
     </section>
 
     <footer>
-      <img src="../personal-page/assets/logo-white.png" />
+      <div class="row mb-4">
+        <div class="col footer-column">
+          <img src="../personal-page/assets/logo-white.png" />
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col">
+          <span class="copyright quick-links">Copyright &copy; CoffeeInfo <script>document.write(new Date().getFullYear())</script>
+          </span>
+        </div>
+      </div>
     </footer>
 
     <script src="js/data.js"></script>

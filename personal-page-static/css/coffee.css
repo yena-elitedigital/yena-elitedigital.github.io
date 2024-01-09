@@ -1,0 +1,52 @@
+h1 {
+  margin-bottom: 50px;
+}
+
+.coffee-info {
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.info-general {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  border-radius: 15px;
+  border: 1px solid var(--gray-warm-200);
+  padding: 40px 36px;
+  background: var(--base-white);
+  box-shadow: 0px 2px 3px 0px rgba(27, 58, 106, 0.07);
+}
+
+.general-container {
+  width: 100%;
+}
+
+.general-table {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.general-heading, .general-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.general-heading {
+  align-items: flex-start;
+}
+
+.general-body {
+  align-items: center;
+}
+
+.body-heading {
+  font-weight: 600;
+}
+
+.info-detail {
+  flex: 1 0 0;
+}

@@ -1,0 +1,65 @@
+section.home .logo {
+  margin: 50px;
+  height: 150px;
+}
+
+.table-responsive-sm {
+  width: 80%;
+  min-width: 400px;
+}
+
+table.card {
+  border: none;
+  background-color: transparent;
+}
+
+thead, tbody {
+  border-radius: 50px;
+  border: 1px solid var(--brand-500);
+  background: var(--base-white);
+}
+
+thead {
+  margin-bottom: 30px;
+  padding: 20px 40px;
+  text-align: left;
+}
+
+tbody {
+  gap: 15px;
+  padding: 40px;
+}
+
+th, td {
+  width: 10%;
+}
+
+.th-sm {
+  width: 10%;
+}
+
+.td-md {
+  width: 20%;
+}
+
+.th-lg {
+  width: 30%;
+}
+
+@media screen and (max-width: 992px) { 
+  .column-5 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) { 
+  .column-4 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 576px) { 
+  .table-responsive-sm {
+    width: 100%;
+  }
+}
