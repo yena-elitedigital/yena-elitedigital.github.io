@@ -10,10 +10,10 @@ const BASEURL = "/";
       let elem = document.createElement("tr");
       elem.className = "coffee-row";
       elem.innerHTML = `
-        <td class="td-lg">${coffee.name}</td>
+        <td class="td-xl">${coffee.name}</td>
         <td>${temp}</td>
         <td class="td-md">${data.size}</td>
-        <td class="td-lg">${coffee.allergens.toString()}</td>
+        <td class="td-lg">${coffee.allergens.join(", ")}</td>
         <td>${data.shots}</td>
         <td class="td-sm"><button id="${coffee.name}-detail-btn" class="detail-btn">View</button></td>
       `;
@@ -58,7 +58,7 @@ const BASEURL = "/";
     for (let coffee of info) {
       generalBody += `
         <div class="general-body">
-          <p>${coffee.size}</p>
+          <p class="body-heading">${coffee.size}</p>
           <p>${coffee.amount < 0 ? "N/A" : coffee.amount}</p>
           <p>${coffee.shots < 0 ? "N/A" : coffee.shots}</p>
           <p>${coffee.calories < 0 ? "N/A" : coffee.calories}</p>
@@ -95,7 +95,7 @@ const BASEURL = "/";
     updateCoffeeDetailInfo("Description", coffee.description);
     updateCoffeeDetailInfo("Recipe", coffee.recipe);
     updateCoffeeDetailInfo("Allergens", coffee.allergens.toString());
-    updateCoffeeDetailInfo("Options", coffee.options.toString());
+    updateCoffeeDetailInfo("Options", coffee.options.join(", "));
   }
 
   window.onload = function () {

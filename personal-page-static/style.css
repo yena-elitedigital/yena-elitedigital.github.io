@@ -1,22 +1,46 @@
 :root {
   width: 100vw;
   height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --base-white: #FFF;
   --base-black: #000;
   --gray-warm-50: #FAFAF9;
+  --gray-warm-200: #E7E5E4;
   --brand-500: #EAAA08;
   --brand-600: #CA8504;
   --brand-700: #A15C07;
   --brand-800: #854A0E;
   --brand-900: #713B12;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --fs-text-md: 1rem;
+  --fs-text-lg: 1.125rem;
+  --fs-text-xl: 1.25rem;
+  --fs-heading-xs: 1.5rem;
+  --fs-heading-sm: 1.875rem;
+  --fs-heading-md: 2.25rem;
+  --fs-heading-lg: 3rem;
+  --fs-heading-xl: 3.75rem;
+  --fs-heading-2xl: 4.5rem;
+}
+
+h1 {
+  font-size: var(--fs-heading-lg);
+}
+
+h3 {
+  font-size: var(--fs-heading-xs);
+}
+
+p, tr {
+  font-size: var(--fs-text-md);
 }
 
 body {
   display: grid;
   grid-template-rows: 80px auto 180px;
   grid-auto-flow: column;
+  margin: 0;
   width: 100%;
+  height: 100%;
   background: var(--gray-warm-50);
 }
 
@@ -28,21 +52,18 @@ header {
   align-items: center;
   padding: 0px 50px;
   background: var(--base-white);
+  box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 header img {
-  width: 240px;
-  height: 45px;
+  height: 40px;
 }
 
 header a {
   color: var(--gray-600);
-  /* Button/md */
-  font-size: 16px;
-  font-style: normal;
+  font-size: var(--fs-text-md);
   font-weight: 600;
   text-decoration: none;
-  text-transform: capitalize;
 }
 
 footer {
@@ -65,49 +86,58 @@ footer img {
 section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 50px;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 50px 50px 50px;
 }
 
-thead, tbody {
+section.home .logo {
+  margin: 50px;
+  height: 150px;
+}
+
+.coffee-list thead, .coffee-list tbody {
   border-radius: 50px;
   border: 1px solid var(--brand-500);
   background: var(--base-white);
 }
 
-thead {
+.coffee-list thead {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
-  padding: 20px 30px;
+  padding: 20px 40px;
   text-align: left;
 }
 
-tbody {
+.coffee-list tbody {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 15px;
-  padding: 20px 30px;
+  padding: 40px;
 }
 
-th, td {
+.coffee-list th, .coffee-list td {
   width: 100px;
 }
 
-.td-sm {
+.coffee-list .td-sm {
   width: 50px;
 }
 
-.td-md {
+.coffee-list .td-md {
   width: 150px;
 }
 
-.td-lg {
+.coffee-list .td-lg {
   width: 200px;
+}
+
+.coffee-list .td-xl {
+  width: 250px;
 }
 
 .coffee-info {
@@ -117,18 +147,21 @@ th, td {
   gap: 80px;
 }
 
-.coffee-info .info-general {
+.info-general {
   display: flex;
-  width: 400px;
-  padding: 40px 36px;
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
-  flex-shrink: 0;
   border-radius: 15px;
-  border: 1px solid var(--Gray-warm-200, #E7E5E4);
-  background: #FFF;
+  border: 1px solid var(--gray-warm-200);
+  width: 400px;
+  padding: 40px 36px;
+  background: var(--base-white);
   box-shadow: 0px 2px 3px 0px rgba(27, 58, 106, 0.07);
+}
+
+.general-container {
+  width: 100%;
 }
 
 .general-table {
@@ -137,25 +170,26 @@ th, td {
   align-items: flex-start;
 }
 
-.general-heading {
+.general-heading, .general-body {
   display: flex;
   width: 140px;
   flex-direction: column;
-  align-items: flex-start;
   gap: 10px;
-  flex-shrink: 0;
+}
+
+.general-heading {
+  align-items: flex-start;
 }
 
 .general-body {
-  display: flex;
-  width: 140px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  flex-shrink: 0;
+  align-items: center;
 }
 
-.coffee-info .info-detail {
+.body-heading {
+  font-weight: 600;
+}
+
+.info-detail {
   flex: 1 0 0;
 }
 
