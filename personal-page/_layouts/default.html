@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ page.title }}</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href='{{ "/assets/css/main.css" | relative_url }}'>
+    <link rel="stylesheet" href='{{ "/assets/css/coffee-list.css" | relative_url }}'>
+    <link rel="stylesheet" href='{{ "/assets/css/coffee.css" | relative_url }}'>
+    {% feed_meta %}
+    {% seo %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a href='{{ "/index.html" | relative_url }}' class="navbar-brand"><img src='{{ "/assets/logo-yellow.png" | relative_url }}' /></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a href='{{ "/index.html" | relative_url }}' class="nav-link">Coffee List</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    {{ content }}
+
+    <footer>
+      <div class="row mb-4">
+        <div class="col footer-column">
+          <img src='{{ "/assets/logo-white.png" | relative_url }}' />
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col">
+          <span class="copyright quick-links">Copyright &copy; CoffeeInfo <script>document.write(new Date().getFullYear())</script>
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <script src='{{ "/assets/js/data.js" | relative_url }}'></script>
+    <script src='{{ "/assets/js/main.js" | relative_url }}'></script>
+  </body>
+</html>
