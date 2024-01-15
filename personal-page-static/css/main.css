@@ -55,6 +55,11 @@ nav img {
   font-weight: 600 !important;
 }
 
+.nav-link.active {
+  color: var(--brand-600) !important;
+  text-decoration: underline;
+}
+
 .nav-link:hover {
   color: var(--brand-600) !important;
 }
@@ -77,8 +82,20 @@ footer img {
   height: 45px;
 }
 
-@media screen and (max-width: 576px) { 
+@media screen and (max-width: 576px) {
+  nav {
+    padding: 0 2rem;
+  }
+
+  nav img {
+    content:url("../../personal-page/assets/logo-yellow-icon.png");
+  }
+
   section {
-    padding: 50px 0;
+    padding: 0;
+  }
+
+  footer .col {
+    text-align: center;
   }
 }

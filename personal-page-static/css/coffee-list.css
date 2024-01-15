@@ -46,20 +46,48 @@ th, td {
   width: 30%;
 }
 
-@media screen and (max-width: 992px) { 
+@media screen and (max-width: 992px) {
+  .table-responsive-sm {
+    width: 90%;
+  }
+   
   .column-5 {
     display: none;
   }
 }
 
-@media screen and (max-width: 768px) { 
+@media screen and (max-width: 768px) {
+  section.home .logo {
+    margin: 30px;
+    height: 100px;
+  }
+
+  .table-responsive-sm {
+    width: 100%;
+  }
+
   .column-4 {
     display: none;
   }
+  
+  thead {
+    margin-bottom: 20px;
+    padding: 10px 30px;
+  }
+  
+  tbody {
+    padding: 10px 30px;
+  }
 }
 
-@media screen and (max-width: 576px) { 
-  .table-responsive-sm {
-    width: 100%;
+@media screen and (max-width: 576px) {
+  .container {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  thead, tbody {
+    border-radius: 0;
   }
 }

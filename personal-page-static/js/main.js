@@ -11,8 +11,8 @@ const BASEURL = "/";
       elem.className = "coffee-row";
       elem.innerHTML = `
         <td scope="row" class="th-lg">${coffee.name}</td>
-        <td>${temp}</td>
-        <td class="th-lg">${data.size}</td>
+        <td class="column-2">${temp}</td>
+        <td class="th-lg column-3">${data.size}</td>
         <td class="th-lg column-4">${coffee.allergens.join(", ")}</td>
         <td class="column-5">${data.shots}</td>
         <td><button id="${coffee.name}-detail-btn" class="detail-btn">View</button></td>
@@ -30,9 +30,11 @@ const BASEURL = "/";
       elementsArray.forEach((elem) => {
         elem.addEventListener("click", (e) => {
           e.preventDefault();
-          const coffeeName = e.target.id.split('-')[0];
-          if (coffeeName) {
-            window.location.href = `${BASEURL}/coffee.html?coffee=${coffeeName}`;
+          if (e.target.id) {
+            const coffeeName = e.target.id.split('-detail-btn')[0];
+            if (coffeeName) {
+              window.location.href = `${BASEURL}/coffee.html?coffee=${coffeeName}`;
+            }
           }
         });
       });
@@ -75,7 +77,7 @@ const BASEURL = "/";
     elem.className = "detail-container";
     elem.innerHTML = `
       <h3>${heading}</h3>
-      <p>${info.split('\n').join("<br>")}</p>
+      <p>${info ? info.split('\n').join("<br>") : ""}</p>
     `;
     document.querySelector(".info-detail").append(elem);
   }
@@ -87,6 +89,8 @@ const BASEURL = "/";
       coffee = filterCoffeeData[0];
     }
 
+    if (!coffee?.name) return;
+
     document.querySelector(".coffee-name").innerHTML = coffee.name;
 
     if (coffee.ice) updateCoffeeGeneralInfo("Ice", coffee.ice);
@@ -94,8 +98,8 @@ const BASEURL = "/";
 
     updateCoffeeDetailInfo("Description", coffee.description);
     updateCoffeeDetailInfo("Recipe", coffee.recipe);
-    updateCoffeeDetailInfo("Allergens", coffee.allergens.toString());
-    updateCoffeeDetailInfo("Options", coffee.options.join(", "));
+    updateCoffeeDetailInfo("Allergens", coffee.allergens ? coffee.allergens.toString() : "");
+    updateCoffeeDetailInfo("Options", coffee.options ? coffee.options.join(", ") : "");
   }
 
   window.onload = function () {

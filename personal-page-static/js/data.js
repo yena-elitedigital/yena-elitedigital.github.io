@@ -34,6 +34,34 @@ const coffeeData = [
     "options": ["Vanilla Gelato", "Flavour Shots", "Whipped Cream", "Chocolate Powder"]
   },
   {
+    "name": "americano con crema",
+    "ice": [
+      {
+        "size": "single",
+        "amount": -1,
+        "shots": 1,
+        "calories": -1,
+        "caffeine": -1
+      }
+    ],
+    "ingredients": ["Water", "Milk", "Orange Syrup", "Espresso"],
+    "details": "americano-con-crema.md",
+    "allergens": ["Milk"],
+    "description": `Reference: https://stories.starbucks.com/stories/2016/recipe-americano-con-crema/
+    
+      It's an Americano with cold, blended foam, made with milk, vanilla, and cinnamon.
+    `,
+    "recipe": `Reference: https://athome.starbucks.com/recipe/americano-con-crema
+
+      1. Make the orange syrup first. In a medium saucepan over medium-high heat, add water, sugar and orange peel. Stir occasionally for 5 minutes or until sugar has dissolved. Remove from heat and let cool. Strain into a container.
+      2. Next, make the Americano con Crema. Froth the milk in a blender on high for 2 minutes, then let it sit for 1–2 minutes.
+      3. Prepare 2 shots of espresso and pour into a mug.
+      4. Add the orange syrup, espresso and 1/4 cup of hot water to a mug and stir.
+      5. Top the beverage with a few spoonfuls of milk froth and sprinkle with sugar if desired.
+    `,
+    "options": []
+  },
+  {
     "name": "americano",
     "ice": [
       {
@@ -97,34 +125,6 @@ const coffeeData = [
       3. Slowly pour your 2 shots of espresso into the water.
     `,
     "options": ["Milk Foam", "Whipped Cream", "Sweetner"]
-  },
-  {
-    "name": "americano con crema",
-    "ice": [
-      {
-        "size": "single",
-        "amount": -1,
-        "shots": 1,
-        "calories": -1,
-        "caffeine": -1
-      }
-    ],
-    "ingredients": ["Water", "Milk", "Orange Syrup", "Espresso"],
-    "details": "americano-con-crema.md",
-    "allergens": ["Milk"],
-    "description": `Reference: https://stories.starbucks.com/stories/2016/recipe-americano-con-crema/
-    
-      It's an Americano with cold, blended foam, made with milk, vanilla, and cinnamon.
-    `,
-    "recipe": `Reference: https://athome.starbucks.com/recipe/americano-con-crema
-
-      1. Make the orange syrup first. In a medium saucepan over medium-high heat, add water, sugar and orange peel. Stir occasionally for 5 minutes or until sugar has dissolved. Remove from heat and let cool. Strain into a container.
-      2. Next, make the Americano con Crema. Froth the milk in a blender on high for 2 minutes, then let it sit for 1–2 minutes.
-      3. Prepare 2 shots of espresso and pour into a mug.
-      4. Add the orange syrup, espresso and 1/4 cup of hot water to a mug and stir.
-      5. Top the beverage with a few spoonfuls of milk froth and sprinkle with sugar if desired.
-    `,
-    "options": []
   },
   {
     "name": "bicerin",
@@ -201,14 +201,14 @@ const coffeeData = [
     "name": "espresso",
     "hot": [
       {
-        "size": "single/solo",
+        "size": "single / solo",
         "amount": 30,
         "shots": 1,
         "calories": 5,
         "caffeine": 75
       },
       {
-        "size": "double/doppio",
+        "size": "double / doppio",
         "amount": 60,
         "shots": 2,
         "calories": 10,
