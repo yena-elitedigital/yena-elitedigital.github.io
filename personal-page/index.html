@@ -9,14 +9,23 @@ title: Coffee List
       <thead>
         <tr>
           <th class="th-lg">Coffee</th>
-          <th>Ice/Hot</th>
-          <th class="th-lg">Size</th>
+          <th class="column-2">Ice/Hot</th>
+          <th class="th-lg column-3">Size</th>
           <th class="th-lg column-4">Allergens</th>
           <th class="column-5">Shots</th>
           <th>View</th>
         </tr>
       </thead>
-      <tbody id="coffee-list"></tbody>
+      <tbody id="coffee-list">
+        {% for coffee in site.coffee %}
+          {% if coffee.ice %}
+            {% include coffee-list-table.html name=coffee.name temp="Ice" allergens=coffee.allergens coffee=coffee.ice %}
+          {% endif %}
+          {% if coffee.hot %}
+            {% include coffee-list-table.html name=coffee.name temp="Hot" allergens=coffee.allergens coffee=coffee.hot %}
+          {% endif %}
+        {% endfor %}
+      </tbody>
     </table>
   </div>
 </section>

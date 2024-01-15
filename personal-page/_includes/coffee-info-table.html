@@ -1,0 +1,43 @@
+<h3>{{ include.temp }}</h3>
+<div class="general-table">
+  <div class="general-heading">
+    <p>Size</p>
+    <p>Amount (ml)</p>
+    <p>Espresso Shot</p>
+    <p>Calories (Cal.)</p>
+    <p>Caffeine (mg)</p>
+  </div>
+  {% for coffee in include.coffee %}
+    <div class="general-body">
+      <p class="body-heading">{{ coffee.size }}</p>
+      <p>
+        {% if coffee.amount and coffee.amount > 0 %}
+          {{ coffee.amount }}
+        {% else %}
+          N/A
+        {% endif %}
+      </p>
+      <p>
+        {% if coffee.shots and coffee.shots > 0 %}
+          {{ coffee.shots }}
+        {% else %}
+          N/A
+        {% endif %}
+      </p>
+      <p>
+        {% if coffee.calories and coffee.calories > 0 %}
+          {{ coffee.calories }}
+        {% else %}
+          N/A
+        {% endif %}
+      </p>
+      <p>
+        {% if coffee.caffeine and coffee.caffeine > 0 %}
+          {{ coffee.caffeine }}
+        {% else %}
+          N/A
+        {% endif %}
+      </p>
+    </div>
+  {% endfor %}
+</div>

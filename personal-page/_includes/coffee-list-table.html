@@ -1,0 +1,10 @@
+{% for item in include.coffee %}
+  <tr class="coffee-row">
+    <td scope="row" class="th-lg">{{ include.name }}</td>
+    <td class="column-2">{{ include.temp }}</td>
+    <td class="th-lg column-3">{{ item.size }}</td>
+    <td class="th-lg column-4">{{ include.allergens | join: ", " }}</td>
+    <td class="column-5">{{ item.shots }}</td>
+    <td><a href="{{ coffee.url | relative_url }}" class="detail-btn">View</a></td>
+  </tr>
+{% endfor %}
