@@ -5,6 +5,10 @@ collections:
     output: true
     permalink: /:title
 
+sass:
+  sass_dir: _sass
+  style: compact # possible values: nested expanded compact compressed
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap

@@ -1,3 +1,9 @@
+---
+---
+
+@import "_colors";
+@import "_fonts";
+
 h1 {
   margin-bottom: 50px;
 }
@@ -13,9 +19,9 @@ h1 {
   align-items: flex-start;
   gap: 20px;
   border-radius: 15px;
-  border: 1px solid var(--gray-warm-200);
+  border: 1px solid $gray-warm-200;
   padding: 40px 36px;
-  background: var(--base-white);
+  background: $base-white;
   box-shadow: 0px 2px 3px 0px rgba(27, 58, 106, 0.07);
 }
 
