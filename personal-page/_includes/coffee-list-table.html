@@ -5,6 +5,12 @@
     <td class="th-lg column-3">{{ item.size }}</td>
     <td class="th-lg column-4">{{ include.allergens | join: ", " }}</td>
     <td class="column-5">{{ item.shots }}</td>
-    <td><a href="{{ coffee.url | relative_url }}" class="detail-btn">View</a></td>
+    <td><button onClick="onShowList('{{ coffee.url | relative_url }}')">View</button></td>
   </tr>
 {% endfor %}
+
+<script>
+  const onShowList = (url) => {
+    window.location.href = url;
+  }
+</script>
