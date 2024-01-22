@@ -3,9 +3,16 @@
 
 @import "_colors";
 @import "_fonts";
+@import "_screen";
 
 h1 {
   margin-bottom: 50px;
+}
+
+.container {
+  @media screen and (max-width: $low-max-width) {
+    padding: 2rem;
+  }
 }
 
 .coffee-info {
@@ -58,14 +65,8 @@ h1 {
   flex: 1 0 0;
 }
 
-@media screen and (max-width: 576px) {
-  .container {
-    padding: 2rem;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .row {
+.row {
+  @media screen and (max-width: small-max-width) {
     flex-direction: column;
   }
 }

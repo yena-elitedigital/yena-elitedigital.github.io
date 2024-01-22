@@ -3,97 +3,114 @@
 
 @import "_colors";
 @import "_fonts";
+@import "_screen";
+
+.container {
+  @media screen and (max-width: $low-max-width) {
+    padding: 0;
+  }
+}
 
 section.home .logo {
   margin: 50px;
   height: 150px;
+
+  @media screen and (max-width: $medium-max-width) {
+    margin: 30px;
+    height: 100px;
+  }
 }
 
 .table-responsive-sm {
   width: 80%;
   min-width: 400px;
-}
 
-table.card {
-  border: none;
-  background-color: transparent;
-}
-
-thead, tbody {
-  border-radius: 50px;
-  border: 1px solid $brand-500;
-  background: $base-white;
-}
-
-thead {
-  margin-bottom: 30px;
-  padding: 20px 40px;
-  text-align: left;
-}
-
-tbody {
-  gap: 15px;
-  padding: 40px;
-}
-
-th, td {
-  width: 10%;
-}
-
-.th-sm {
-  width: 10%;
-}
-
-.td-md {
-  width: 20%;
-}
-
-.th-lg {
-  width: 30%;
-}
-
-@media screen and (max-width: 992px) {
-  .table-responsive-sm {
+  @media screen and (max-width: $high-max-width) {
     width: 90%;
   }
 
-  .column-5 {
-    display: none;
+  @media screen and (max-width: $medium-max-width) {
+    width: 100%;
   }
 }
 
-@media screen and (max-width: 768px) {
-  section.home .logo {
-    margin: 30px;
-    height: 100px;
+table {
+  &.card {
+    border: none;
+    background-color: transparent;
   }
 
-  .table-responsive-sm {
-    width: 100%;
-  }
+  thead, tbody {
+    border-radius: 50px;
+    border: 1px solid $brand-500;
+    background: $base-white;
 
-  .column-4 {
-    display: none;
+    @media screen and (max-width: $small-max-width) {
+      border-radius: 0;
+    }
   }
   
   thead {
-    margin-bottom: 20px;
-    padding: 10px 30px;
+    margin-bottom: 30px;
+    padding: 20px 40px;
+    text-align: left;
+
+    @media screen and (max-width: $medium-max-width) {
+      margin-bottom: 20px;
+      padding: 10px 30px;
+    }
+  }
+
+  tbody {
+    gap: 15px;
+    padding: 40px;
+
+    @media screen and (max-width: $medium-max-width) {
+      padding: 10px 30px;
+    }
+
+    .coffee-row {
+      vertical-align: middle;
+    }
+
+    button {
+      border-radius: 15px;
+      border: 3px solid $brand-500;
+      padding: 5px 10px;
+      background-color: $brand-600;
+      color: $base-white;
+
+      &:hover {
+        background-color: $brand-500;
+      }
+    }
+  }
+
+  th, td {
+    width: 10%;
   }
   
-  tbody {
-    padding: 10px 30px;
+  .th-sm {
+    width: 10%;
   }
-}
-
-@media screen and (max-width: 576px) {
-  .container {
-    padding: 0;
+  
+  .td-md {
+    width: 20%;
   }
-}
+  
+  .th-lg {
+    width: 30%;
+  }
+  
+  .column-4 {
+    @media screen and (max-width: $medium-max-width) {
+      display: none;
+    }
+  }
 
-@media screen and (max-width: 425px) {
-  thead, tbody {
-    border-radius: 0;
+  .column-5 {
+    @media screen and (max-width: $high-max-width) {
+      display: none;
+    }
   }
 }
