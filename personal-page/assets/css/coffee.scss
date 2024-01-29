@@ -32,10 +32,6 @@ h1 {
   box-shadow: 0px 2px 3px 0px rgba(27, 58, 106, 0.07);
 }
 
-.general-container {
-  width: 100%;
-}
-
 .general-table {
   display: flex;
   justify-content: space-between;
@@ -61,12 +57,8 @@ h1 {
   font-weight: 600;
 }
 
-.info-detail {
-  flex: 1 0 0;
-}
-
 .row {
-  @media screen and (max-width: small-max-width) {
+  @media screen and (max-width: $medium-max-width) {
     flex-direction: column;
   }
 }

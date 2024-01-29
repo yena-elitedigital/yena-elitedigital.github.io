@@ -81,6 +81,16 @@ footer {
     img {
       width: 240px;
       height: 45px;
+
+      @media screen and (max-width: $small-max-width) {
+        content: url("../logo-white-icon.png");
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    .copyright {
+      color: #fff;
     }
   }
 }

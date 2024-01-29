@@ -11,6 +11,12 @@
   }
 }
 
+section.home {
+  @media screen and (max-width: $high-max-width) {
+    padding: 0;
+  }
+}
+
 section.home .logo {
   margin: 50px;
   height: 150px;
@@ -31,6 +37,7 @@ section.home .logo {
 
   @media screen and (max-width: $medium-max-width) {
     width: 100%;
+    min-width: unset;
   }
 }
 
@@ -71,6 +78,31 @@ table {
 
     .coffee-row {
       vertical-align: middle;
+
+      &:not(.coffee-row-1) {
+        @media screen and (max-width: $small-max-width) {
+          display: none;
+        }
+      }
+
+      .coffee-name-desktop {
+        @media screen and (max-width: $small-max-width) {
+          display: none;
+        }
+      }
+
+      .coffee-name-mobile {
+        display: none;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+        
+        @media screen and (max-width: $small-max-width) {
+          display: table-cell;
+        }
+      }
     }
 
     button {
@@ -86,31 +118,50 @@ table {
     }
   }
 
-  th, td {
-    width: 10%;
-  }
-  
-  .th-sm {
-    width: 10%;
-  }
-  
-  .td-md {
-    width: 20%;
-  }
-  
-  .th-lg {
-    width: 30%;
-  }
-  
-  .column-4 {
-    @media screen and (max-width: $medium-max-width) {
-      display: none;
+  tr {
+    @media screen and (max-width: $small-max-width) {
+      display: flex;
+      width: 100%;
     }
-  }
 
-  .column-5 {
-    @media screen and (max-width: $high-max-width) {
-      display: none;
+    th, td {
+      width: 10%;
+    }
+    
+    .th-sm {
+      width: 10%;
+    }
+    
+    .td-md {
+      width: 20%;
+    }
+    
+    .th-lg {
+      width: 30%;
+  
+      @media screen and (max-width: $small-max-width) {
+        width: 100%;
+      }
+    }
+  
+    .column-2,
+    .column-3,
+    .column-6 {
+      @media screen and (max-width: $small-max-width) {
+        display: none;
+      }
+    }
+    
+    .column-4 {
+      @media screen and (max-width: $medium-max-width) {
+        display: none;
+      }
+    }
+  
+    .column-5 {
+      @media screen and (max-width: $high-max-width) {
+        display: none;
+      }
     }
   }
 }

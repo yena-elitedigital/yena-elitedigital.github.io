@@ -1,11 +1,19 @@
 {% for item in include.coffee %}
-  <tr class="coffee-row">
-    <td scope="row" class="th-lg">{{ include.name }}</td>
+  <tr class="coffee-row coffee-row-{{ forloop.index }}">
+    <td scope="row" class="th-lg">
+      <span class="coffee-name-desktop">{{ include.name }}</span>
+      <span
+        class="coffee-name-mobile"
+        onClick="onShowList('{{ coffee.url | relative_url }}')"
+      >{{ include.name }}</span>
+    </td>
     <td class="column-2">{{ include.temp }}</td>
     <td class="th-lg column-3">{{ item.size }}</td>
     <td class="th-lg column-4">{{ include.allergens | join: ", " }}</td>
     <td class="column-5">{{ item.shots }}</td>
-    <td><button onClick="onShowList('{{ coffee.url | relative_url }}')">View</button></td>
+    <td class="column-6">
+      <button onClick="onShowList('{{ coffee.url | relative_url }}')">View</button>
+    </td>
   </tr>
 {% endfor %}
 
