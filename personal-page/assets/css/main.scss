@@ -28,6 +28,10 @@ p, tr {
   font-size: $fs-text-md;
 }
 
+button {
+  user-select: none;
+}
+
 nav {
   padding: 0 3rem;
   background: $base-white !important;
@@ -90,7 +94,11 @@ footer {
     }
 
     .copyright {
-      color: #fff;
+      color: $base-white;
     }
   }
+}
+
+.hidden {
+  display: none !important;
 }

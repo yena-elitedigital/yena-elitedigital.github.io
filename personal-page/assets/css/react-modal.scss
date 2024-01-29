@@ -1,0 +1,58 @@
+---
+---
+
+@import "_colors";
+@import "_fonts";
+@import "_screen";
+
+#react-modal {
+  z-index: 600;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  .modal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    width: auto;
+    max-width: 80%;
+    height: auto;
+    background-color: $base-white;
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    p {
+      margin: 0;
+      text-align: left;
+
+      span {
+        font-weight: 700;
+
+        &.coffee-name {
+          padding-bottom: 10px;
+          font-size: $fs-heading-sm;
+        }
+      }
+    }
+
+    button {
+      margin-top: 20px;
+    }
+  }
+}

@@ -1,18 +1,28 @@
 {% for item in include.coffee %}
-  <tr class="coffee-row coffee-row-{{ forloop.index }}">
+  <tr
+    id="{{ include.name }}-{{ forloop.index }}"
+    class="coffee-row coffee-row-{{ forloop.index }}"
+  >
+    {% assign name = include.name %}
+    {% assign url = coffee.url | relative_url %}
+    {% assign ingredients = include.ingredients | join: ", " %}
+    {% assign allergens = include.allergens | join: ", " %}
     <td scope="row" class="th-lg">
-      <span class="coffee-name-desktop">{{ include.name }}</span>
+      <span class="coffee-name-desktop">{{ name }}</span>
       <span
         class="coffee-name-mobile"
-        onClick="onShowList('{{ coffee.url | relative_url }}')"
-      >{{ include.name }}</span>
+        onClick="onShowList('{{ url }}')"
+      >{{ name }}</span>
     </td>
     <td class="column-2">{{ include.temp }}</td>
     <td class="th-lg column-3">{{ item.size }}</td>
-    <td class="th-lg column-4">{{ include.allergens | join: ", " }}</td>
+    <td class="th-lg column-4">{{ allergens }}</td>
     <td class="column-5">{{ item.shots }}</td>
     <td class="column-6">
-      <button onClick="onShowList('{{ coffee.url | relative_url }}')">View</button>
+      <!-- <button onClick="onShowList('{{ url }}')">View</button> -->
+      <button
+        onClick="onShowModal('{{ name }}', '{{ url }}', '{{ ingredients }}', '{{ allergens }}')"
+      >View</button>
     </td>
   </tr>
 {% endfor %}
@@ -20,5 +30,18 @@
 <script>
   const onShowList = (url) => {
     window.location.href = url;
+  }
+
+  const onShowModal = (name, url, ingredients, allergens) => {
+    const modal = document.getElementById("react-modal");
+    const modalText = document.getElementById("modal-text");
+    modalText.innerHTML = `
+      <span class="coffee-name">${name}</span>
+      ${ingredients && `<br /><span>Ingredients:</span> ${ingredients}`}
+      ${allergens && `<br /><span>Allergens:</span> ${allergens}`}
+    `;
+
+    modal.setAttribute('data-coffee-url', url);
+    modal.classList.remove("hidden");
   }
 </script>

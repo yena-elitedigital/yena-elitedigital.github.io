@@ -7,6 +7,7 @@ title: Coffee List
 
 <section class="home">
   <img src='{{ "/assets/logo-yellow-icon.png" | relative_url }}' class="logo" />
+  <div id="react-modal" class="hidden"></div>
   <div class="table-responsive-sm">
     <table class="table table-hover table-fixed table-borderless card">
       <thead>
@@ -22,10 +23,10 @@ title: Coffee List
       <tbody id="coffee-list">
         {% for coffee in site.coffee %}
           {% if coffee.ice %}
-            {% include coffee-list-table.html name=coffee.name temp="Ice" allergens=coffee.allergens coffee=coffee.ice %}
+            {% include coffee-list-table.html name=coffee.name temp="Ice" ingredients=coffee.ingredients allergens=coffee.allergens coffee=coffee.ice %}
           {% endif %}
           {% if coffee.hot %}
-            {% include coffee-list-table.html name=coffee.name temp="Hot" allergens=coffee.allergens coffee=coffee.hot %}
+            {% include coffee-list-table.html name=coffee.name temp="Hot" ingredients=coffee.ingredients allergens=coffee.allergens coffee=coffee.hot %}
           {% endif %}
         {% endfor %}
       </tbody>
@@ -34,5 +35,6 @@ title: Coffee List
 </section>
 
 <!-- Execute React component -->
-<script type="text/babel" src="{{ '/assets/js/component1.js' | relative_url }}"></script>
-<script type="text/babel" src="{{ '/assets/js/component2.js' | relative_url }}"></script>
+<script type="text/babel" src="{{ '/assets/react/component1.js' | relative_url }}"></script>
+<script type="text/babel" src="{{ '/assets/react/component2.js' | relative_url }}"></script>
+<script type="text/babel" src="{{ '/assets/react/Modal.js' | relative_url }}"></script>
