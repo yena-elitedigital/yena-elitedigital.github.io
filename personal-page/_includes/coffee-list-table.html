@@ -11,7 +11,7 @@
       <span class="coffee-name-desktop">{{ name }}</span>
       <span
         class="coffee-name-mobile"
-        onClick="onShowList('{{ url }}')"
+        onClick="onShowModal('{{ name }}', '{{ url }}', '{{ ingredients }}', '{{ allergens }}')"
       >{{ name }}</span>
     </td>
     <td class="column-2">{{ include.temp }}</td>
@@ -26,22 +26,3 @@
     </td>
   </tr>
 {% endfor %}
-
-<script>
-  const onShowList = (url) => {
-    window.location.href = url;
-  }
-
-  const onShowModal = (name, url, ingredients, allergens) => {
-    const modal = document.getElementById("react-modal");
-    const modalText = document.getElementById("modal-text");
-    modalText.innerHTML = `
-      <span class="coffee-name">${name}</span>
-      ${ingredients && `<br /><span>Ingredients:</span> ${ingredients}`}
-      ${allergens && `<br /><span>Allergens:</span> ${allergens}`}
-    `;
-
-    modal.setAttribute('data-coffee-url', url);
-    modal.classList.remove("hidden");
-  }
-</script>
