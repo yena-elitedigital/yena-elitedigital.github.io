@@ -9,6 +9,9 @@ sass:
   sass_dir: _sass
   style: compact # possible values: nested expanded compact compressed
 
+exclude:
+  - node_modules
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap

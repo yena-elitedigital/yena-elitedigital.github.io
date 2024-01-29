@@ -3,7 +3,7 @@ layout: default
 title: Coffee List
 ---
 
-<div id="react-component"></div>
+<div id="component1"></div>
 
 <section class="home">
   <img src='{{ "/assets/logo-yellow-icon.png" | relative_url }}' class="logo" />
@@ -33,4 +33,6 @@ title: Coffee List
   </div>
 </section>
 
-<script type="module" src='{{ "/assets/js/reactComponent.js" | relative_url }}'></script>
+<!-- Execute React component -->
+<script type="text/babel" src="{{ '/assets/js/component1.js' | relative_url }}"></script>
+<script type="text/babel" src="{{ '/assets/js/component2.js' | relative_url }}"></script>
