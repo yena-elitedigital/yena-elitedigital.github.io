@@ -1,4 +1,4 @@
-baseurl: /personal-page
+baseurl: /
 
 collections:
   coffee:
@@ -6,6 +6,8 @@ collections:
     permalink: /:title
 
 sass:
+  load_paths:
+    - _sass
   sass_dir: _sass
   style: compact # possible values: nested expanded compact compressed
 
