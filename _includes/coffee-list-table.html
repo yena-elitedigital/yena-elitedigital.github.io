@@ -1,0 +1,28 @@
+{% for item in include.coffee %}
+  <tr
+    id="{{ include.name }}-{{ forloop.index }}"
+    class="coffee-row coffee-row-{{ forloop.index }}"
+  >
+    {% assign name = include.name %}
+    {% assign url = coffee.url | relative_url %}
+    {% assign ingredients = include.ingredients | join: ", " %}
+    {% assign allergens = include.allergens | join: ", " %}
+    <td scope="row" class="th-lg">
+      <span class="coffee-name-desktop">{{ name }}</span>
+      <span
+        class="coffee-name-mobile"
+        onClick="onShowModal('{{ name }}', '{{ url }}', '{{ ingredients }}', '{{ allergens }}')"
+      >{{ name }}</span>
+    </td>
+    <td class="column-2">{{ include.temp }}</td>
+    <td class="th-lg column-3">{{ item.size }}</td>
+    <td class="th-lg column-4">{{ allergens }}</td>
+    <td class="column-5">{{ item.shots }}</td>
+    <td class="column-6">
+      <!-- <button onClick="onShowList('{{ url }}')">View</button> -->
+      <button
+        onClick="onShowModal('{{ name }}', '{{ url }}', '{{ ingredients }}', '{{ allergens }}')"
+      >View</button>
+    </td>
+  </tr>
+{% endfor %}

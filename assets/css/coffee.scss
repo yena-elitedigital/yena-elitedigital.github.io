@@ -1,0 +1,64 @@
+---
+---
+
+@import "../../_sass/_colors";
+@import "../../_sass/_fonts";
+@import "../../_sass/_screen";
+
+h1 {
+  margin-bottom: 50px;
+}
+
+.container {
+  @media screen and (max-width: $low-max-width) {
+    padding: 2rem;
+  }
+}
+
+.coffee-info {
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.info-general {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  border-radius: 15px;
+  border: 1px solid $gray-warm-200;
+  padding: 40px 36px;
+  background: $base-white;
+  box-shadow: 0px 2px 3px 0px rgba(27, 58, 106, 0.07);
+}
+
+.general-table {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.general-heading, .general-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.general-heading {
+  align-items: flex-start;
+}
+
+.general-body {
+  align-items: center;
+}
+
+.body-heading {
+  font-weight: 600;
+}
+
+.row {
+  @media screen and (max-width: $medium-max-width) {
+    flex-direction: column;
+  }
+}

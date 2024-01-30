@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ page.title }}</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href='{{ "/assets/css/main.css" | relative_url }}'>
+    <link rel="stylesheet" href='{{ "/assets/css/coffee-list.css" | relative_url }}'>
+    <link rel="stylesheet" href='{{ "/assets/css/coffee.css" | relative_url }}'>
+    <link rel="stylesheet" href='{{ "/assets/css/react-modal.css" | relative_url }}'>
+    {% feed_meta %}
+    {% seo %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    {% include navigation.html %}
+
+    {{ content }}
+
+    <footer>
+      <div class="row mb-4">
+        <div class="col footer-column">
+          <img src='{{ "/assets/logo-white.png" | relative_url }}' />
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col">
+          <span class="copyright quick-links">Copyright &copy; CoffeeInfo <script>document.write(new Date().getFullYear())</script>
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Include React, ReactDOM, and Babel -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </body>
+</html>

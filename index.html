@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-  </body>
-</html>
+---
+layout: default
+title: Coffee List
+---
+
+<div id="component1"></div>
+
+<section class="home">
+  <img src='{{ "/assets/logo-yellow-icon.png" | relative_url }}' class="logo" />
+  <div id="react-modal" class="hidden"></div>
+  <div class="table-responsive-sm">
+    <table class="table table-hover table-fixed table-borderless card">
+      <thead>
+        <tr>
+          <th class="th-lg">Coffee</th>
+          <th class="column-2">Ice/Hot</th>
+          <th class="th-lg column-3">Size</th>
+          <th class="th-lg column-4">Allergens</th>
+          <th class="column-5">Shots</th>
+          <th class="column-6">View</th>
+        </tr>
+      </thead>
+      <tbody id="coffee-list">
+        {% for coffee in site.coffee %}
+          {% if coffee.ice %}
+            {% include coffee-list-table.html name=coffee.name temp="Ice" ingredients=coffee.ingredients allergens=coffee.allergens coffee=coffee.ice %}
+          {% endif %}
+          {% if coffee.hot %}
+            {% include coffee-list-table.html name=coffee.name temp="Hot" ingredients=coffee.ingredients allergens=coffee.allergens coffee=coffee.hot %}
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script type="text/javascript" src="{{ '/assets/js/coffee-list.js' | relative_url }}"></script>
+
+<!-- Execute React component -->
+<script type="text/babel" src="{{ '/assets/react/component1.js' | relative_url }}"></script>
+<script type="text/babel" src="{{ '/assets/react/component2.js' | relative_url }}"></script>
+<script type="text/babel" src="{{ '/assets/react/Modal.js' | relative_url }}"></script>

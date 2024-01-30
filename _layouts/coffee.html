@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<section class="container">
+  <h1 class="coffee-name">{{ page.title }}</h1>
+  <div class="coffee-info row justify-content-md-center">
+    <div class="info-general col">
+      {% if page.ice %}
+        {% include coffee-info-table.html temp="Ice" coffee=page.ice %}
+      {% endif %}
+      {% if page.hot %}
+        {% include coffee-info-table.html temp="Hot" coffee=page.hot %}
+      {% endif %}
+    </div>
+    <div class="info-detail col">{{ content | markdownify }}</div>
+  </div>
+</section>

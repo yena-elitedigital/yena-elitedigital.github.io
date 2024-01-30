@@ -1,0 +1,167 @@
+---
+---
+
+@import "../../_sass/_colors";
+@import "../../_sass/_fonts";
+@import "../../_sass/_screen";
+
+.container {
+  @media screen and (max-width: $low-max-width) {
+    padding: 0;
+  }
+}
+
+section.home {
+  @media screen and (max-width: $high-max-width) {
+    padding: 0;
+  }
+}
+
+section.home .logo {
+  margin: 50px;
+  height: 150px;
+
+  @media screen and (max-width: $medium-max-width) {
+    margin: 30px;
+    height: 100px;
+  }
+}
+
+.table-responsive-sm {
+  width: 80%;
+  min-width: 400px;
+
+  @media screen and (max-width: $high-max-width) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: $medium-max-width) {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+table {
+  &.card {
+    border: none;
+    background-color: transparent;
+  }
+
+  thead, tbody {
+    border-radius: 50px;
+    border: 1px solid $brand-500;
+    background: $base-white;
+
+    @media screen and (max-width: $small-max-width) {
+      border-radius: 0;
+    }
+  }
+  
+  thead {
+    margin-bottom: 30px;
+    padding: 20px 40px;
+    text-align: left;
+
+    @media screen and (max-width: $medium-max-width) {
+      margin-bottom: 20px;
+      padding: 10px 30px;
+    }
+  }
+
+  tbody {
+    gap: 15px;
+    padding: 40px;
+
+    @media screen and (max-width: $medium-max-width) {
+      padding: 10px 30px;
+    }
+
+    .coffee-row {
+      vertical-align: middle;
+
+      &:not(.coffee-row-1) {
+        @media screen and (max-width: $small-max-width) {
+          display: none;
+        }
+      }
+
+      .coffee-name-desktop {
+        @media screen and (max-width: $small-max-width) {
+          display: none;
+        }
+      }
+
+      .coffee-name-mobile {
+        display: none;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+        
+        @media screen and (max-width: $small-max-width) {
+          display: table-cell;
+        }
+      }
+    }
+
+    button {
+      border-radius: 15px;
+      border: 3px solid $brand-500;
+      padding: 5px 10px;
+      background-color: $brand-600;
+      color: $base-white;
+
+      &:hover {
+        background-color: $brand-500;
+      }
+    }
+  }
+
+  tr {
+    @media screen and (max-width: $small-max-width) {
+      display: flex;
+      width: 100%;
+    }
+
+    th, td {
+      width: 10%;
+    }
+    
+    .th-sm {
+      width: 10%;
+    }
+    
+    .td-md {
+      width: 20%;
+    }
+    
+    .th-lg {
+      width: 30%;
+  
+      @media screen and (max-width: $small-max-width) {
+        width: 100%;
+      }
+    }
+  
+    .column-2,
+    .column-3,
+    .column-6 {
+      @media screen and (max-width: $small-max-width) {
+        display: none;
+      }
+    }
+    
+    .column-4 {
+      @media screen and (max-width: $medium-max-width) {
+        display: none;
+      }
+    }
+  
+    .column-5 {
+      @media screen and (max-width: $high-max-width) {
+        display: none;
+      }
+    }
+  }
+}
