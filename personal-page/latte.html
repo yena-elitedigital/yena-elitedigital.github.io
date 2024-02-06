@@ -1,0 +1,43 @@
+---
+layout: default
+title: Coffee List
+permalink: /category/latte/
+---
+
+<section class="home">
+  <img src='{{ "/assets/logo-yellow-icon.png" | relative_url }}' class="logo" />
+  <div id="react-modal" class="hidden"></div>
+  <div class="table-responsive-sm">
+    <table class="table table-hover table-fixed table-borderless card">
+      <thead>
+        <tr>
+          <th class="th-lg">Coffee</th>
+          <th class="column-2">Ice/Hot</th>
+          <th class="th-lg column-3">Size</th>
+          <th class="th-lg column-4">Allergens</th>
+          <th class="column-5">Shots</th>
+          <th class="column-6">View</th>
+        </tr>
+      </thead>
+      <tbody id="coffee-list">
+        {% for coffee in site.coffee %}
+          {% for category in coffee.categories %}
+            {% if category == "latte" %}
+              {% if coffee.ice %}
+                {% include coffee-list-table.html name=coffee.name temp="Ice" ingredients=coffee.ingredients allergens=coffee.allergens coffee=coffee.ice %}
+              {% endif %}
+              {% if coffee.hot %}
+                {% include coffee-list-table.html name=coffee.name temp="Hot" ingredients=coffee.ingredients allergens=coffee.allergens coffee=coffee.hot %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script type="text/javascript" src="{{ '/assets/js/coffee-list.js' | relative_url }}"></script>
+
+<!-- Execute React component -->
+<script type="text/babel" src="{{ '/assets/react/Modal.js' | relative_url }}"></script>

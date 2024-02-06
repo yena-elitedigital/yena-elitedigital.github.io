@@ -1,3 +1,5 @@
+<link rel="stylesheet" href='{{ "/assets/css/navigation.css" | relative_url }}'>
+
 <nav class="navbar navbar-expand-md navbar-light bg-light">
   <a href='{{ "/" | relative_url }}' class="navbar-brand"><img src='{{ "/assets/logo-yellow.png" | relative_url }}' /></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,9 +9,34 @@
     <ul class="navbar-nav mr-auto">
       {% for item in site.data.navigation %}
         <li class="nav-item active">
-          <a href='{{ item.link | relative_url }}' class="nav-link {% if page.url == item.link %}active{% endif %}">{{ item.name }}</a>
+          {% if item.is_parent %}
+            {% assign name = item.name | replace: " ", "-" %}
+            <div class="nav-link nav-parent" onmouseover="showSubmenu('{{ name }}')">
+              {{ item.name }}
+              <img src='{{ "/assets/menu-arrow.svg" | relative_url }}' />
+            </div>
+            <div id="{{ name }}-submenu" class="nav-children hidden" onmouseover="showSubmenu('{{ name }}')" onmouseout="hideSubmenu('{{ name }}')">
+              {% for category in site.data.categories %}
+                <a href='{{ category.link | relative_url }}' class="nav-link {% if page.url == category.link %}active{% endif %}">{{ category.name }}</a>
+              {% endfor %}
+            </div>
+          {% else %}
+            <a href='{{ item.link | relative_url }}' class="nav-link {% if page.url == item.link %}active{% endif %}">{{ item.name }}</a>
+          {% endif %}
         </li>
       {% endfor %}
     </ul>
   </div>
 </nav>
+
+<script>
+  const showSubmenu = (name) => {
+    const submenu = document.getElementById(`${name}-submenu`);
+    submenu.classList.remove("hidden");
+  };
+
+  const hideSubmenu = (name) => {
+    const submenu = document.getElementById(`${name}-submenu`);
+    submenu.classList.add("hidden");
+  };
+</script>

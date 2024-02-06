@@ -1,2 +1,5 @@
-- name: Coffee List
+- name: All
   link: /
+- name: Category
+  link: /category/
+  is_parent: true
