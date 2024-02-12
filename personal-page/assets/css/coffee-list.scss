@@ -20,11 +20,13 @@ section.home {
 section.home .logo {
   margin: 50px;
   height: 150px;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 
   @media screen and (max-width: $medium-max-width) {
     margin: 30px;
     height: 100px;
-  }
+  } 
 }
 
 .table-responsive-sm {
@@ -78,6 +80,12 @@ table {
 
     .coffee-row {
       vertical-align: middle;
+
+      &.coffee-row-1 {
+        &:not(:first-child) {
+          border-top: 1px dotted $brand-500;
+        }
+      }
 
       &:not(.coffee-row-1) {
         @media screen and (max-width: $small-max-width) {
