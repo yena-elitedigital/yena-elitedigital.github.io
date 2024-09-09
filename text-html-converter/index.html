@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Converter</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/convert.css" />
+    <script type="text/javascript" src="js/converter.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <main id="main">
+      <h1>Text-HTML-Converter</h1>
+      <p>This converter is to replace some characters with HTML code(s) to follow some rules.</p>
+
+      <section id="fr-rule" class="row convert-section">
+        <div class="col column">
+          <h2>Converter with FR Rule</h2>
+          <div class="row">
+            <div class="row-eq col column">
+              <label for="fr-rule-input" class="hidden">Enter text</label>
+              <textarea id="fr-rule-input" placeholder="Enter text here"></textarea>
+              <button id="fr-rule-convert">Convert</button>
+            </div>
+            <div class="arrow arrow-right">&#8594;</div>
+            <div class="arrow arrow-down">&#8595;</div>
+            <div class="row-eq col column">
+              <div id="fr-rule-output" class="convert-output">
+                <p class="placeholder">Empty</p>
+              </div>
+              <button onclick="copyToClipboard('fr-rule-output')">Copy</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="choose-rule" class="row convert-section">
+        <div class="col column">
+          <h2>Converter with Chosen Rule</h2>
+          <div class="row">
+            <div class="row-eq col column">
+              <label id="choose-rule-select-label" class="hidden">Choose Rule</label>
+              <select id="choose-rule-select" aria-labelledby="choose-rule-select-label">
+                <option value="-">Replace "Hyphen" (-)</option>
+                <option value="–">Replace "en-Dash" (–)</option>
+                <option value="—">Replace "em-Dash" (—)</option>
+                <option value="<">Replace "Less Than" (<)</option>
+                <option value="≤">Replace "Less or Equal to" (≤)</option>
+                <option value=">">Replace "Greater Than" (>)</option>
+                <option value="≥">Replace "Greater Than or Equal to" (≥)</option>
+                <option value="/">Replace "Slash" (/) with "Non-Breaking Slash"</option>
+                <option value="space">Replace "Space" with "Non-Breaking Space"</option>
+              </select>
+              <label for="choose-rule-input" class="hidden">Enter text</label>
+              <textarea id="choose-rule-input" placeholder="Enter text here"></textarea>
+              <button id="choose-rule-convert">Convert</button>
+            </div>
+            <div class="arrow arrow-right">&#8594;</div>
+            <div class="arrow arrow-down">&#8595;</div>
+            <div class="row-eq col column">
+              <div id="choose-rule-output" class="convert-output">
+                <p class="placeholder">Empty</p>
+              </div>
+              <button onclick="copyToClipboard('choose-rule-output')">Copy</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="custom-rule" class="row convert-section">
+        <div class="col column">
+          <h2>Converter with Custom Rule</h2>
+          <div class="row">
+            <div class="row-eq col column">
+              <label for="custom-rule-from" class="hidden">From</label>
+              <input id="custom-rule-from" placeholder="From" />
+              <label for="custom-rule-to" class="hidden">To</label>
+              <input id="custom-rule-to" placeholder="To" />
+              <label for="custom-rule-input" class="hidden">Enter text</label>
+              <textarea id="custom-rule-input" placeholder="Enter text here"></textarea>
+              <button id="custom-rule-convert">Convert</button>
+            </div>
+            <div class="arrow arrow-right">&#8594;</div>
+            <div class="arrow arrow-down">&#8595;</div>
+            <div class="row-eq col column">
+              <div id="custom-rule-output" class="convert-output">
+                <p class="placeholder">Empty</p>
+              </div>
+              <button onclick="copyToClipboard('custom-rule-output')">Copy</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="row text-center">
+        <p>Text-HTML-Converter</p>
+      </div>
+    </footer>
+  </body>
+</html>
