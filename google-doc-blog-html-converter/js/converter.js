@@ -181,7 +181,7 @@ window.onload = function () {
           const typeClass = classMap.p ? ` class="${classMap.p}"` : '';
           const typeStyle = styleMap.p ? ` style="${styleMap.p}"` : '';
 
-          if (cleaned && !cleaned.toLowerCase().startsWith('alt-tag:')) {
+          if (cleaned && !cleaned.toLowerCase().startsWith('alt-tag:') && !cleaned.toLowerCase().startsWith('image link:')) {
             code += `<p${typeClass}${typeStyle}>${cleaned}</p>\n`;
           }
         }
@@ -234,6 +234,10 @@ window.onload = function () {
         const tag = node.tagName;
 
         if (tag === 'P' && node.textContent.trim().toLowerCase().startsWith('alt-tag:')) {
+          return '';
+        }
+
+        if (tag === 'P' && node.textContent.trim().toLowerCase().startsWith('image link:')) {
           return '';
         }
 
