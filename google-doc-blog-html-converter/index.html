@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Google Doc Blog HTML Converter</title>
+
+    <link rel="stylesheet" href="css/main.css" />
+
+    <script type="text/javascript" src="js/convertTypeHtmlStyle.js"></script>
+    <script type="text/javascript" src="js/convertTypeMap.js"></script>
+    <script type="text/javascript" src="js/converter.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+    <main id="main">
+      <h1>Google Doc Blog HTML Converter</h1>
+
+      <section>
+        <div>
+          <h2>Upload Google Doc Exported HTML</h2>
+          <ul>
+            <li>You can export a HTML file from Google Doc by: <strong>File > Download > Web Page (.html, zipped)</strong>.</li>
+            <li>Select a convert type depending on the project you work on. It will add the classes and styles respectively.</li>
+            <li><code>&lt;img&gt;</code> tag - Make sure to replace image URLs with correct paths.</li>
+            <li>Make sure to double check the code thoroughly before publishing the post.</li>
+          </ul>
+        </div>
+
+        <div class="input-container">
+          <label for="type">Select Convert Type:</label>
+          <select id="type">
+            <option value="default">Default</option>
+            <option value="type1">Type 1</option>
+            <option value="type2">Type 2</option>
+            <option value="type3">Type 3</option>
+          </select>
+        </div>
+
+        <div class="input-container">
+          <label for="domain">Internal Domain (for anchor tag attributes):</label>
+          <input type="text" id="domain" placeholder="example.com or https://example.com" />
+        </div>
+
+        <div class="input-container">
+          <label for="domain">HTML File from Google Doc:</label>
+          <input type="file" id="upload" accept=".html" />
+        </div>
+
+        <button id="convert">Convert</button>
+      </section>
+
+      <section>
+        <h2 id="output-title" class="hidden">Output</h2>
+        <div id="output"></div>
+      </section>
+    </main>
+  </body>
+</html>
