@@ -12,6 +12,12 @@ const typeBlockDividerMap = {
   type3: '',
 };
 
+// Defines if external links should be opened in a new tab
+const typeAnchorTagMap = {
+  default: true,
+  type1: false,
+};
+
 const typeWrapperMap = {
   default: {
     img: '',
@@ -80,6 +86,17 @@ const typeClassMap = {
     p: '',
     a: '',
   },
+  type4: {
+    img: 'aligncenter wp-image-9367 size-large',
+    h2: '',
+    h3: '',
+    h4: '',
+    ul: '',
+    ol: '',
+    li: '',
+    p: '',
+    a: '',
+  },
 };
 
 const typeStyleMap = {
@@ -126,6 +143,17 @@ const typeStyleMap = {
     li: '',
     p: '',
     a: 'color: -webkit-link',
+  },
+  type5: {
+    img: 'width: 75%;',
+    h2: 'text-align: left',
+    h3: '',
+    h4: '',
+    ul: 'margin: 16px 0 0',
+    ol: '',
+    li: 'list-style: unset; color: #232323;',
+    p: '',
+    a: '',
   },
 };
 

@@ -20,12 +20,26 @@
       <section>
         <div>
           <h2>Upload Google Doc Exported HTML</h2>
-          <ul>
-            <li>You can export a HTML file from Google Doc by: <strong>File > Download > Web Page (.html, zipped)</strong>.</li>
-            <li>Select a convert type depending on the project you work on. It will add the classes and styles respectively.</li>
-            <li><code>&lt;img&gt;</code> tag - Make sure to replace image URLs with correct paths.</li>
-            <li>Make sure to double check the code thoroughly before publishing the post.</li>
-          </ul>
+
+          <div style="margin-top: 2rem;">
+            <strong>Instructions:</strong>
+            <ol>
+              <li>(Optional) Select a convert type depending on the project you work on. It will add the classes and styles respectively.</li>
+              <li>(Optional) Put in the internal domain. It will help determining if <code>&lt;a&gt;</code> tag should open in a new tab or not.</li>
+              <li>Upload the HTML file you downloaded from Google Doc.
+                <ul style="margin-top: 0.5rem;">
+                  <li>How to get a HTML file from Google Doc: <strong>File > Download > Web Page (.html, zipped)</strong>.</li>
+                </ul>
+              </li>
+              <li>Click "Convert" button.</li>
+            </ol>
+
+            <strong>Important Notes:</strong>
+            <ul>
+              <li><code>&lt;img&gt;</code> tag - Make sure to replace image URLs with correct paths.</li>
+              <li>Make sure to <strong style="color: red;">double check</strong> the code thoroughly before publishing the post.</li>
+            </ul>
+          </div>
         </div>
 
         <div class="input-container">
@@ -35,6 +49,8 @@
             <option value="type1">Type 1</option>
             <option value="type2">Type 2</option>
             <option value="type3">Type 3</option>
+            <option value="type4">Type 4</option>
+            <option value="type5">Type 5</option>
           </select>
         </div>
 
