@@ -35,6 +35,9 @@ window.onload = function () {
 
     const htmlStyleMap = typeHtmlStyleMap ? typeHtmlStyleMap[selectedType] || typeHtmlStyleMap.default : '';
     const blockDividerMap = typeBlockDividerMap[selectedType] || typeBlockDividerMap.default;
+    const anchorTagMap = typeAnchorTagMap[selectedType] !== undefined && typeAnchorTagMap[selectedType] !== null
+      ? typeAnchorTagMap[selectedType]
+      : typeAnchorTagMap.default;
     const wrapperMap = typeWrapperMap[selectedType] || typeWrapperMap.default;
     const classMap = typeClassMap[selectedType] || typeClassMap.default;
     const styleMap = typeStyleMap[selectedType] || typeStyleMap.default;
@@ -74,12 +77,12 @@ window.onload = function () {
     removeCommentContainers(doc.body);
 
     const allElements = Array.from(doc.body.querySelectorAll('h1, h2, h3, h4, p, ul, ol, img'));
-    const startIndex = allElements.findIndex(el => el.textContent.trim().match(/^\[h1\]/i));
+    const startIndex = allElements.findIndex(el => el.textContent.trim().match(/^\[?h1[:\]]\]?\s*/i));
 
     if (startIndex === -1) return;
 
     const h1El = allElements[startIndex];
-    const blogTitle = h1El ? h1El.textContent.trim().replace(/^\[h1\]\s*/i, '') : '';
+    const blogTitle = h1El ? h1El.textContent.trim().replace(/^\[?h1[:\]]\]?\s*/i, '') : '';
 
     const afterTitle = allElements.slice(startIndex + 2);
     const blocks = [];
@@ -130,26 +133,44 @@ window.onload = function () {
 
           code += `<img src="IMG_${imageCount++}" alt="${altText}"${typeClass}${typeStyle} />\n`;
         } else if (tag === 'h2') {
-          const cleaned = cleanText(el).replace(/^\[h2\]\s*/i, '');
+          const headingCode = getHeadingCode(el);
 
-          const typeClass = classMap.h2 ? ` class="${classMap.h2}"` : '';
-          const typeStyle = styleMap.h2 ? ` style="${styleMap.h2}"` : '';
+          if (headingCode) {
+            code += headingCode;
+          } else {
+            const cleaned = cleanText(el).replace(/^\[?h2[:\]]\]?\s*/i, '');
 
-          code += `<h2${typeClass}${typeStyle}>${cleaned}</h2>\n`;
+            const typeClass = classMap.h2 ? ` class="${classMap.h2}"` : '';
+            const typeStyle = styleMap.h2 ? ` style="${styleMap.h2}"` : '';
+
+            code += `<h2${typeClass}${typeStyle}>${cleaned}</h2>\n`;
+          }
         } else if (tag === 'h3') {
-          const cleaned = cleanText(el).replace(/^\[h3\]\s*/i, '');
+          const headingCode = getHeadingCode(el);
 
-          const typeClass = classMap.h3 ? ` class="${classMap.h3}"` : '';
-          const typeStyle = styleMap.h3 ? ` style="${styleMap.h3}"` : '';
+          if (headingCode) {
+            code += headingCode;
+          } else {
+            const cleaned = cleanText(el).replace(/^\[?h3[:\]]\]?\s*/i, '');
 
-          code += `<h3${typeClass}${typeStyle}>${cleaned}</h3>\n`;
+            const typeClass = classMap.h3 ? ` class="${classMap.h3}"` : '';
+            const typeStyle = styleMap.h3 ? ` style="${styleMap.h3}"` : '';
+
+            code += `<h3${typeClass}${typeStyle}>${cleaned}</h3>\n`;
+          }
         } else if (tag === 'h4') {
-          const cleaned = cleanText(el).replace(/^\[h4\]\s*/i, '');
+          const headingCode = getHeadingCode(el);
 
-          const typeClass = classMap.h4 ? ` class="${classMap.h4}"` : '';
-          const typeStyle = styleMap.h4 ? ` style="${styleMap.h4}"` : '';
+          if (headingCode) {
+            code += headingCode;
+          } else {
+            const cleaned = cleanText(el).replace(/^\[?h4[:\]]\]?\s*/i, '');
 
-          code += `<h4${typeClass}${typeStyle}>${cleaned}</h4>\n`;
+            const typeClass = classMap.h4 ? ` class="${classMap.h4}"` : '';
+            const typeStyle = styleMap.h4 ? ` style="${styleMap.h4}"` : '';
+
+            code += `<h4${typeClass}${typeStyle}>${cleaned}</h4>\n`;
+          }
         } else if (["ul", "ol"].includes(tag)) {
           let additionalTab = '';
 
@@ -176,13 +197,23 @@ window.onload = function () {
             code += wrapperMap[tag][1] + '\n';
           }
         } else if (tag === 'p') {
-          const cleaned = cleanText(el).replace(/^\[(Body|h2|h3|h4)\]\s*/i, '');
+          const headingCode = getHeadingCode(el);
 
-          const typeClass = classMap.p ? ` class="${classMap.p}"` : '';
-          const typeStyle = styleMap.p ? ` style="${styleMap.p}"` : '';
+          if (headingCode) {
+            code += headingCode;
+          } else {
+            const cleaned = cleanText(el).replace(/^\[(Body|h2|h3|h4)\]\s*/i, '');
 
-          if (cleaned && !cleaned.toLowerCase().startsWith('alt-tag:') && !cleaned.toLowerCase().startsWith('image link:')) {
-            code += `<p${typeClass}${typeStyle}>${cleaned}</p>\n`;
+            const typeClass = classMap.p ? ` class="${classMap.p}"` : '';
+            const typeStyle = styleMap.p ? ` style="${styleMap.p}"` : '';
+
+            if (
+              cleaned &&
+              !cleaned.toLowerCase().startsWith('alt-tag:') &&
+              !cleaned.toLowerCase().startsWith('image link:')
+            ) {
+              code += `<p${typeClass}${typeStyle}>${cleaned}</p>\n`;
+            }
           }
         }
       });
@@ -221,6 +252,25 @@ window.onload = function () {
       outputTitle.classList.remove('hidden');
     }
 
+    // Generate code for headings if it does not match the tag
+    function getHeadingCode(el) {
+      const rawText = el.textContent.trim();
+      const headingMatch = rawText.match(/^\[?(h[2-4])[:\]]\]?\s*/i);
+
+      if (headingMatch) {
+        // If <p> tag starts with a heading marker, treat it as a heading
+        const actualTag = headingMatch[1].toLowerCase();
+        const cleaned = cleanText(el).replace(/^\[?h[2-4][:\]]\]?\s*/i, '');
+
+        const typeClass = classMap[actualTag] ? ` class="${classMap[actualTag]}"` : '';
+        const typeStyle = styleMap[actualTag] ? ` style="${styleMap[actualTag]}"` : '';
+
+        return `<${actualTag}${typeClass}${typeStyle}>${cleaned}</${actualTag}>\n`;
+      }
+
+      return '';
+    }
+
     function cleanText(el) {
       function recurse(node) {
         if (node.nodeType === Node.TEXT_NODE) {
@@ -255,7 +305,7 @@ window.onload = function () {
             const linkHost = parsed.hostname.replace(/^www\./, '');
             const isInternal = linkHost.endsWith(internalDomain);
 
-            const targetRel = isInternal ? '' : ' target="_blank" rel="noreferrer"';
+            const targetRel = isInternal || !anchorTagMap ? '' : ' target="_blank" rel="noreferrer"';
             return `<a href="${href}"${targetRel}${typeClass}${typeStyle}>${inner}</a>`;
           } catch (e) {
             return `<a href="${href}"${typeClass}${typeStyle}>${inner}</a>`; // fallback for malformed URLs
@@ -285,7 +335,7 @@ window.onload = function () {
     }
 
     function cleanLabel(text) {
-      return text.replace(/^\[(Body|H1|H2|H3|H4|h1|h2|h3|h4)\]\s*/i, '');
+      return text.replace(/^\[?(Body|H1|H2|H3|H4|h1|h2|h3|h4)[:\]]\]?\s*/i, '');
     }
 
     function escapeHTML(str) {
